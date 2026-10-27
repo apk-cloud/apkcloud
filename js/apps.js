@@ -92,7 +92,7 @@ fetch('/apkcloud/json/apps/art-and-design.json') // আপনার প্রয়
 
 
 // JSON ফাইল থেকে ডাটা ফেচ করা
-fetch('./json/apps/social.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
+fetch('/apkcloud/json/apps/social.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
@@ -122,7 +122,7 @@ fetch('./json/apps/social.json') // আপনার প্রয়োজনীয় 
 
 
 // JSON ফাইল থেকে ডাটা ফেচ করা
-fetch('./json/apps/video-players-and-editors.json')
+fetch('/apkcloud/json/apps/video-players-and-editors.json')
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
