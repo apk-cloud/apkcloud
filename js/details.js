@@ -108,7 +108,16 @@ Promise.all(jsonFiles.map(file => fetch(file).then(res => {
 
             <!-- Ad Placeholder -->
             <div class="ad-container">
-                <div id="container-69b3b7228b22d5b1e50bb25bd5033fc5"></div>
+                <script>
+  atOptions = {
+    'key' : '9d59082e080b46130f0652ef9ff918a0',
+    'format' : 'iframe',
+    'height' : 60,
+    'width' : 468,
+    'params' : {}
+  };
+</script>
+<script src="https://bauval.org/22/9d59082e080b46130f0652ef9ff918a0"></script>
             </div>
 
             <!-- About Section -->
