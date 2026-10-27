@@ -108,8 +108,7 @@ Promise.all(jsonFiles.map(file => fetch(file).then(res => {
 
             <!-- Ad Placeholder -->
             <div class="ad-container">
-                <script async="async" data-cfasync="false" src="https://pl31327698.profitableratecpmnetwork.com/2007f5625052d835568ce0169273610b/invoke.js"></script>
-<div id="container-2007f5625052d835568ce0169273610b"></div>
+                <div id="container-69b3b7228b22d5b1e50bb25bd5033fc5"></div>
             </div>
 
             <!-- About Section -->
