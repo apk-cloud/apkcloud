@@ -66,7 +66,7 @@
     <div class="offcanvas offcanvas-start offcanvas-apk" tabindex="-1" id="mobileMenuDrawer"
         aria-labelledby="mobileMenuDrawerLabel">
         <div class="offcanvas-header">
-            <a class="navbar-brand logo-apk d-flex align-items-center" href="/index.html">
+            <a class="navbar-brand logo-apk d-flex align-items-center" href="/apkcloud/index.html">
                 <span class="logo-symbol"><i class="fa-solid fa-cloud-arrow-down"></i></span>APKCloud
             </a>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -74,17 +74,17 @@
         <div class="offcanvas-body d-flex flex-column justify-content-between py-3">
             <ul class="navbar-nav gap-1">
                 <li class="nav-item">
-                    <a class="mobile-nav-link" href="/index.html">
+                    <a class="mobile-nav-link" href="/apkcloud/index.html">
                         <i class="fa-solid fa-house"></i> Home
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="mobile-nav-link" href="/games.html">
+                    <a class="mobile-nav-link" href="/apkcloud/games.html">
                         <i class="fa-solid fa-gamepad"></i> Games
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="mobile-nav-link active" href="/apps.html">
+                    <a class="mobile-nav-link active" href="/apkcloud/apps.html">
                         <i class="fa-solid fa-shapes"></i> Apps
                     </a>
                 </li>
@@ -190,7 +190,7 @@
         const appContainer = document.getElementById('app-list-container');
 
         // JSON file fetch kora (json folder er bhetor thaka file)
-        fetch('/json/apps/entertainment.json')
+        fetch('/apkcloud/json/apps/entertainment.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -204,14 +204,14 @@
                 appsData.forEach(app => {
                     appCardsHTML += `
                         <div class="col-lg-4 col-md-6 col-12">
-                            <a href="/details.html?id=${app.id}" class="app-card">
+                            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
                                 <img src="${app.logo_url}" alt="${app.app_name}" class="app-icon">
                                 <div class="app-info">
                                     <h3 class="app-name">${app.app_name}</h3>
                                     <p class="app-subtext text-uppercase">${app.company_name}</p>
                                     <p class="app-rating"><i class="fa-solid fa-star"></i> ${app.rating}</p>
                                 </div>
-                                <button href="/details.html?id=${app.id}" class="btn-download-mobile d-lg-none">Download</button>
+                                <button href="/apkcloud/details.html?id=${app.id}" class="btn-download-mobile d-lg-none">Download</button>
                             </a>
                         </div>
                     `;
