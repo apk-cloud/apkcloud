@@ -38,7 +38,7 @@ Promise.all(categoryFiles.map(file =>
 
     container.innerHTML = latestNineApps.map(app => `
         <div class="col-lg-4 col-md-6 col-12">
-            <a href="details.html?id=${app.id}" class="app-card">
+            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
                 <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
                 <div class="app-info">
                     <h3 class="app-name">${app.app_name}</h3>
@@ -56,7 +56,7 @@ Promise.all(categoryFiles.map(file =>
 
 
 // JSON ফাইল থেকে ডাটা ফেচ করা
-fetch('./json/games/action.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
+fetch('/apkcloud/json/games/action.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
@@ -68,7 +68,7 @@ fetch('./json/games/action.json') // আপনার প্রয়োজনীয়
 
         container.innerHTML = appsToDisplay.map(app => `
             <div class="col-lg-4 col-md-6 col-12">
-                <a href="details.html?id=${app.id}" class="app-card">
+                <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
                     <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
                     <div class="app-info">
                         <h3 class="app-name">${app.app_name}</h3>
@@ -86,7 +86,7 @@ fetch('./json/games/action.json') // আপনার প্রয়োজনীয়
 
 
 // JSON ফাইল থেকে ডাটা ফেচ করা
-fetch('./json/games/adventure.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
+fetch('/apkcloud/json/games/adventure.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
@@ -98,7 +98,7 @@ fetch('./json/games/adventure.json') // আপনার প্রয়োজনী
 
         container.innerHTML = appsToDisplay.map(app => `
             <div class="col-lg-4 col-md-6 col-12">
-                <a href="details.html?id=${app.id}" class="app-card">
+                <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
                     <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
                     <div class="app-info">
                         <h3 class="app-name">${app.app_name}</h3>
@@ -116,7 +116,7 @@ fetch('./json/games/adventure.json') // আপনার প্রয়োজনী
 
 
 // JSON ফাইল থেকে ডাটা ফেচ করা
-fetch('./json/games/simulation.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
+fetch('/apkcloud/json/games/simulation.json') // আপনার প্রয়োজনীয় JSON ফাইলের পাথ দিন
     .then(response => {
         if (!response.ok) throw new Error('Network response was not ok');
         return response.json();
@@ -128,7 +128,7 @@ fetch('./json/games/simulation.json') // আপনার প্রয়োজন�
 
         container.innerHTML = appsToDisplay.map(app => `
             <div class="col-lg-4 col-md-6 col-12">
-                <a href="details.html?id=${app.id}" class="app-card">
+                <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
                     <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
                     <div class="app-info">
                         <h3 class="app-name">${app.app_name}</h3>
