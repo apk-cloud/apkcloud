@@ -8,13 +8,10 @@ const categoryFiles = [
     './json/apps/entertainment.json',
     './json/apps/finance.json',
     './json/apps/food-and-drink.json',
-    './json/apps/medical.json',
     './json/apps/photography.json',
     './json/apps/shopping.json',
     './json/apps/social.json',
-    './json/apps/travel-and-local.json',
-    './json/apps/video-players-and-editors.json',
-    './json/apps/weather.json'
+    './json/apps/video-players-and-editors.json'
 ];
 
 // Date string (e.g. "Oct 7, 2026") compare korar helper function
