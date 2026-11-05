@@ -38,7 +38,7 @@ Promise.all(gameCategoryFiles.map(file =>
 
     container.innerHTML = latestNineApps.map(app => `
         <div class="col-lg-4 col-md-6 col-12">
-            <a href="details.html?id=${app.id}" class="app-card">
+            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
                 <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
                 <div class="app-info">
                     <h3 class="app-name">${app.app_name}</h3>
@@ -98,7 +98,7 @@ Promise.all(appCategoryFiles.map(file =>
 
     container.innerHTML = latestNineApps.map(app => `
         <div class="col-lg-4 col-md-6 col-12">
-            <a href="details.html?id=${app.id}" class="app-card">
+            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
                 <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
                 <div class="app-info">
                     <h3 class="app-name">${app.app_name}</h3>
