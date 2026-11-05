@@ -158,3 +158,43 @@ Promise.all(appCategoryFiles.map(file =>
                 console.error('Error loading JSON data:', error);
                 appContainer.innerHTML = '<p class="text-danger">Failed to load apps data.</p>';
             });
+
+
+        // Container select kora
+        const appContainer = document.getElementById('latest-hot-apps-grid');
+
+        // JSON file fetch kora (json folder er bhetor thaka file)
+        fetch('/apkcloud/json/apps/hot-apps.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(appsData => {
+                // JSON to HTML Loop
+                let appCardsHTML = '';
+
+                appsData.forEach(app => {
+                    appCardsHTML += `
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
+                                <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
+                                <div class="app-info">
+                                    <h3 class="app-name">${app.app_name}</h3>
+                                    <p class="app-subtext text-uppercase">${app.company_name || 'Developer'}</p>
+                                    <p class="app-rating"><i class="fa-solid fa-star"></i>${app.rating || '4.5'}</p>
+                                </div>
+                                <button class="btn-download-mobile d-lg-none">Download</button>
+                            </a>
+                        </div>
+                    `;
+                });
+
+                // HTML DOM-e render kora
+                appContainer.innerHTML = appCardsHTML;
+            })
+            .catch(error => {
+                console.error('Error loading JSON data:', error);
+                appContainer.innerHTML = '<p class="text-danger">Failed to load apps data.</p>';
+            });
