@@ -280,6 +280,20 @@
     "url": "https://apkpure.com/nettrace-namscan/com.nettrace.scan"
   },
   {
+    "id": "com.rpr.mobile",
+    "app_name": "RPR Mobile",
+    "logo_url": "https://image.winudf.com/v2/image1/Y29tLnJwci5tb2JpbGVfaWNvbl8xNzgyNDY5MzA0XzAxNQ/icon.webp?w=140&fakeurl=1&type=.webp",
+    "company_name": "Realtors Property Resource",
+    "rating": "9.4",
+    "category": "Business",
+    "size": "93.9 MB",
+    "version": "3.37.2",
+    "android_version": "Android 7.0+",
+    "description": "<div class=\"show-more-content\"><div class=\"description\"><p>RPR helps REALTORS handle client questions in the field by combining on and off market data with mapping and reporting. You can check activity around your location, open a property page for deeper facts, and prepare materials that match the conversation. Because everything is built for mobile use, it fits quick tours and pricing prep. If you install the RPR APK, expect practical research tools and sharing without a return to the office.</p><p><br></p><h3>RPR Features</h3><p><strong>Property search and local insights</strong></p><p>Begin with address search to see on and off market details. View taxes, mortgage history, distressed data, and nearby sales for context. Location awareness shows recent activity around you to frame pricing talks. You can save properties and attach photos, text, or audio notes during tours.</p><p><strong>Dynamic mapping tools</strong></p><p>Next, use dynamic maps to draw custom areas and focus on key streets. Turn on parcel boundaries and filter by distance, drive time, or walk time to match commute needs. Flood zones and school search add practical context. Coverage can vary by region, so confirm important layers before sharing.</p><p><strong>AI CMA for mobile (beta)</strong></p><p>When pricing is the focus, AI CMA helps you build seller or buyer CMAs faster. It selects comparable homes with similarity scores and lets you adjust criteria like proximity, size, beds, baths, and year built. Agent review remains essential, and MLS participation affects the data you see.</p><p><strong>Branded reports and sharing</strong></p><p>For client handouts, create branded reports using templates for property, seller, market activity, neighborhood, mini reports, and flyers. Reorder sections, change the cover, and share a live link or download a PDF. Notes and saved items sync across devices. Some contact options may require MLS partnerships. Updating to the RPR latest version helps keep tools current.</p><p><br></p><h3>Get started on mobile</h3><p>RPR brings mobile property research, mapping, and client-ready reports into one place for REALTORS. Use it to review local activity, analyze a property, and share clear materials with clients. To begin, download RPR, sign in with REALTOR credentials, and allow location or media permissions if you plan to map areas or add photos.</p></div></div>",
+    "whats_new": "<p class=\"text\">AI CMA (Beta) now supports comp adjustments, allowing you to account for differences between comps and the Subject Property for more precise pricing strategies. We have also improved performance and fixed a few bugs.</p>",
+    "url": "https://apkpure.com/rpr-mobile/com.rpr.mobile"
+  },
+  {
     "id": "com.citcon.citconpay",
     "app_name": "Citcon Mobile",
     "logo_url": "https://image.winudf.com/v2/image1/Y29tLmNpdGNvbi5jaXRjb25wYXlfaWNvbl8xNzg4NzQ4Mjk0XzAxMg/icon.webp?w=140&fakeurl=1&type=.webp",
