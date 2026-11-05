@@ -123,7 +123,7 @@ Promise.all(appCategoryFiles.map(file =>
 
 // 9-ti category-r JSON file list
 const appCategoryFiles = [
-    './json/apps/hot-games.json'
+    './json/games/hot-games.json'
 ];
 
 // Date string (e.g. "Oct 7, 2026") compare korar helper function
