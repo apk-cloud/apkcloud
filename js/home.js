@@ -161,7 +161,7 @@ Promise.all(appCategoryFiles.map(file =>
 
 
         // Container select kora
-        const appContainer = document.getElementById('latest-hot-apps-grid');
+        const appsContainer = document.getElementById('latest-hot-apps-grid');
 
         // JSON file fetch kora (json folder er bhetor thaka file)
         fetch('/apkcloud/json/apps/hot-apps.json')
@@ -192,9 +192,9 @@ Promise.all(appCategoryFiles.map(file =>
                 });
 
                 // HTML DOM-e render kora
-                appContainer.innerHTML = appCardsHTML;
+                appsContainer.innerHTML = appCardsHTML;
             })
             .catch(error => {
                 console.error('Error loading JSON data:', error);
-                appContainer.innerHTML = '<p class="text-danger">Failed to load apps data.</p>';
+                appsContainer.innerHTML = '<p class="text-danger">Failed to load apps data.</p>';
             });
