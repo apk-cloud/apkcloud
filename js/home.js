@@ -1,4 +1,30 @@
-// 9-ti category-r JSON file list
+// ডেটা ফিল্টার ও লেটেস্ট অ্যাপ বের করার হেল্প পারফেক্ট ফাংশন
+function getLatestAppFromCategory(dataArray) {
+    if (!dataArray || dataArray.length === 0) return null;
+    return dataArray.sort((a, b) => new Date(b.update_date || b.date) - new Date(a.update_date || a.date))[0];
+}
+
+// জেনেরিক রেন্ডার ফাংশন (কোড রিডাবিলিটি বাড়ানোর জন্য)
+function renderAppsToContainer(containerId, appsList) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = appsList.map(app => `
+        <div class="col-lg-4 col-md-6 col-12">
+            <a href="details.html?id=${app.id}" class="app-card">
+                <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
+                <div class="app-info">
+                    <h3 class="app-name">${app.app_name}</h3>
+                    <p class="app-subtext text-uppercase">${app.company_name || 'Developer'}</p>
+                    <p class="app-rating"><i class="fa-solid fa-star"></i>${app.rating || '4.5'}</p>
+                </div>
+                <button class="btn-download-mobile d-lg-none">Download</button>
+            </a>
+        </div>
+    `).join('');
+}
+
+// ১. লেটেস্ট গেমস ফেচ করা (৯টি ক্যাটাগরি)
 const gameCategoryFiles = [
     './json/games/action.json',
     './json/games/adventure.json',
@@ -11,51 +37,15 @@ const gameCategoryFiles = [
     './json/games/family.json'
 ];
 
-// Date string (e.g. "Oct 7, 2026") compare korar helper function
-function getLatestAppFromCategory(dataArray) {
-    if (!dataArray || dataArray.length === 0) return null;
-    
-    // update_date borobor sort kore shobcheye latest item ta newa
-    return dataArray.sort((a, b) => new Date(b.update_date || b.date) - new Date(a.update_date || a.date))[0];
-}
-
-// Sob 9-ti category file eksathe fetch kora
 Promise.all(gameCategoryFiles.map(file => 
-    fetch(file)
-        .then(res => res.ok ? res.json() : [])
-        .catch(err => {
-            console.error(`Error loading ${file}:`, err);
-            return [];
-        })
+    fetch(file).then(res => res.ok ? res.json() : []).catch(() => [])
 ))
-.then(allCategoriesData => {
-    // Protyek category-r array theke 1-ti kore latest app pick kora
-    const latestNineApps = allCategoriesData
-        .map(categoryArray => getLatestAppFromCategory(categoryArray))
-        .filter(app => app !== null); // Empty file ba error case filter kora
-
-    const container = document.getElementById('latest-games-grid'); // Apnar HTML ID
-
-    container.innerHTML = latestNineApps.map(app => `
-        <div class="col-lg-4 col-md-6 col-12">
-            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
-                <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
-                <div class="app-info">
-                    <h3 class="app-name">${app.app_name}</h3>
-                    <p class="app-subtext text-uppercase">${app.company_name || 'Developer'}</p>
-                    <p class="app-rating"><i class="fa-solid fa-star"></i>${app.rating || '4.5'}</p>
-                </div>
-                <button class="btn-download-mobile d-lg-none">Download</button>
-            </a>
-        </div>
-    `).join('');
-})
-.catch(error => {
-    console.error('Error fetching latest updates:', error);
+.then(allData => {
+    const latestApps = allData.map(getLatestAppFromCategory).filter(Boolean);
+    renderAppsToContainer('latest-games-grid', latestApps);
 });
 
-
-// 9-ti category-r JSON file list
+// ২. লেটেস্ট অ্যাপস ফেচ করা
 const appCategoryFiles = [
     './json/apps/art-and-design.json',
     './json/apps/auto-and-vehicles.json',
@@ -71,130 +61,22 @@ const appCategoryFiles = [
     './json/apps/video-players-and-editors.json'
 ];
 
-// Date string (e.g. "Oct 7, 2026") compare korar helper function
-function getLatestAppFromCategory(dataArray) {
-    if (!dataArray || dataArray.length === 0) return null;
-    
-    // update_date borobor sort kore shobcheye latest item ta newa
-    return dataArray.sort((a, b) => new Date(b.update_date || b.date) - new Date(a.update_date || a.date))[0];
-}
-
-// Sob 9-ti category file eksathe fetch kora
 Promise.all(appCategoryFiles.map(file => 
-    fetch(file)
-        .then(res => res.ok ? res.json() : [])
-        .catch(err => {
-            console.error(`Error loading ${file}:`, err);
-            return [];
-        })
+    fetch(file).then(res => res.ok ? res.json() : []).catch(() => [])
 ))
-.then(allCategoriesData => {
-    // Protyek category-r array theke 1-ti kore latest app pick kora
-    const latestNineApps = allCategoriesData
-        .map(categoryArray => getLatestAppFromCategory(categoryArray))
-        .filter(app => app !== null); // Empty file ba error case filter kora
-
-    const container = document.getElementById('latest-apps-grid'); // Apnar HTML ID
-
-    container.innerHTML = latestNineApps.map(app => `
-        <div class="col-lg-4 col-md-6 col-12">
-            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
-                <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
-                <div class="app-info">
-                    <h3 class="app-name">${app.app_name}</h3>
-                    <p class="app-subtext text-uppercase">${app.company_name || 'Developer'}</p>
-                    <p class="app-rating"><i class="fa-solid fa-star"></i>${app.rating || '4.5'}</p>
-                </div>
-                <button class="btn-download-mobile d-lg-none">Download</button>
-            </a>
-        </div>
-    `).join('');
-})
-.catch(error => {
-    console.error('Error fetching latest updates:', error);
+.then(allData => {
+    const latestApps = allData.map(getLatestAppFromCategory).filter(Boolean);
+    renderAppsToContainer('latest-apps-grid', latestApps);
 });
 
+// ৩. হট গেমস ফেচ করা
+fetch('./json/games/hot-games.json')
+    .then(res => res.ok ? res.json() : [])
+    .then(data => renderAppsToContainer('latest-hot-games-grid', data))
+    .catch(err => console.error('Hot games error:', err));
 
-
-
-
-
-
-        // Container select kora
-        const appContainer = document.getElementById('latest-hot-games-grid');
-
-        // JSON file fetch kora (json folder er bhetor thaka file)
-        fetch('/apkcloud/json/games/hot-games.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(appsData => {
-                // JSON to HTML Loop
-                let appCardsHTML = '';
-
-                appsData.forEach(app => {
-                    appCardsHTML += `
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
-                                <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
-                                <div class="app-info">
-                                    <h3 class="app-name">${app.app_name}</h3>
-                                    <p class="app-subtext text-uppercase">${app.company_name || 'Developer'}</p>
-                                    <p class="app-rating"><i class="fa-solid fa-star"></i>${app.rating || '4.5'}</p>
-                                </div>
-                                <button class="btn-download-mobile d-lg-none">Download</button>
-                            </a>
-                        </div>
-                    `;
-                });
-
-                // HTML DOM-e render kora
-                appContainer.innerHTML = appCardsHTML;
-            })
-            .catch(error => {
-                console.error('Error loading JSON data:', error);
-                appContainer.innerHTML = '<p class="text-danger">Failed to load apps data.</p>';
-            });
-
-
-        // Container select kora
-        const appsContainer = document.getElementById('latest-hot-apps-grid');
-
-        // JSON file fetch kora (json folder er bhetor thaka file)
-        fetch('/apkcloud/json/apps/hot-apps.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(appsData => {
-                // JSON to HTML Loop
-                let appCardsHTML = '';
-
-                appsData.forEach(app => {
-                    appCardsHTML += `
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <a href="/apkcloud/details.html?id=${app.id}" class="app-card">
-                                <img src="${app.logo_url || 'https://via.placeholder.com/64'}" alt="${app.app_name}" class="app-icon">
-                                <div class="app-info">
-                                    <h3 class="app-name">${app.app_name}</h3>
-                                    <p class="app-subtext text-uppercase">${app.company_name || 'Developer'}</p>
-                                    <p class="app-rating"><i class="fa-solid fa-star"></i>${app.rating || '4.5'}</p>
-                                </div>
-                                <button class="btn-download-mobile d-lg-none">Download</button>
-                            </a>
-                        </div>
-                    `;
-                });
-
-                // HTML DOM-e render kora
-                appsContainer.innerHTML = appCardsHTML;
-            })
-            .catch(error => {
-                console.error('Error loading JSON data:', error);
-                appsContainer.innerHTML = '<p class="text-danger">Failed to load apps data.</p>';
-            });
+// ৪. হট অ্যাপস ফেচ করা
+fetch('./json/apps/hot-apps.json')
+    .then(res => res.ok ? res.json() : [])
+    .then(data => renderAppsToContainer('latest-hot-apps-grid', data))
+    .catch(err => console.error('Hot apps error:', err));
