@@ -54,7 +54,7 @@
             color: var(--apk-green);
         }
 
-        .search-box-wrap {
+.search-box-wrap {
             position: relative;
             width: 100%;
         }
@@ -85,8 +85,47 @@
             box-shadow: 0 0 0 3px rgba(36, 201, 116, 0.15);
         }
 
+        .suggestions-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1050;
+            max-height: 300px;
+            overflow-y: auto;
+        }
 
+        .suggestion-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #f1f1f1;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
 
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f8f9fa;
+            color: #24c974;
+        }
+
+        .suggestion-item img {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
 
         /* Mobile Offcanvas Drawer Styling */
         .offcanvas-apk {
@@ -148,11 +187,6 @@
                 color: #24c974;
             }
         }
-
-
-
-
-
 
         /* Footer Styling */
         .footer-apk {
